@@ -14,7 +14,7 @@ class SiteContato extends Model
         'nome',
         'telefone',
         'email',
-        'motivo_mensagem',
-        'mensaagem'
+        'motivo_contato',
+        'mensagem'
     ];
 }

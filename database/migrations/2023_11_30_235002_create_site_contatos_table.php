@@ -10,6 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
+
     {
         Schema::create('site_contatos', function (Blueprint $table) {
             $table->id();
@@ -17,8 +18,12 @@ return new class extends Migration
             $table->string('telefone', 50);
             $table->string('email', 80);
             $table->integer('motivo_contato');
-            $table->text('mensagem');
+            $table->text('mensagem', 200);
             $table->timestamps();
+
+            /* // Adicionando a coluna motivo_contatos_id e definindo como chave estrangeira
+            $table->unsignedBigInteger('motivo_contatos_id')->nullable();
+            $table->foreign('motivo_contatos_id')->references('id')->on('motivo_contatos'); */
         });
     }
 
