@@ -7,6 +7,7 @@ use App\Http\Controllers\clientesController;
 use App\Http\Controllers\fornecedorController;
 use App\Http\Controllers\produtosController;
 use App\Http\Controllers\testeController;
+use App\Http\Middleware\LogAcessoMiddlleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [indexController::class, 'index'])->name('site.index');
+Route::get('/', [indexController::class, 'index'])
+    ->name('site.index')
+    ->middleware(LogAcessoMiddlleware::class);
 Route::get('/sobrenos', [sobreNosController::class, 'sobreNos'])->name('site.sobrenos');
 Route::get('/contato', [contatoController::class, 'contato'])->name('site.contato');
 Route::post('/contato', [contatoController::class, 'contato'])->name('site.contato');
